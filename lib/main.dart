@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:fsm_mobile/core/constants/app_theme.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'config/routes.dart';
 import 'presentation/controllers/locale_controller.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
@@ -12,16 +16,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LocaleController themeController = Get.put(LocaleController());
+    Get.put(LocaleController());
 
-    return Obx(
-      () => GetMaterialApp(
-        title: 'FSM Mobile',
-        debugShowCheckedModeBanner: false,
-        theme: themeController.appTheme.value,
-        initialRoute: '/',
-        getPages: routes,
-      ),
+    return GetMaterialApp(
+      title: 'FSM Mobile',
+      debugShowCheckedModeBanner: false,
+      theme: lightTheme, 
+      darkTheme: darkTheme,
+      initialRoute: '/',
+      getPages: routes,
     );
   }
 }

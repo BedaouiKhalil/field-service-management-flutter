@@ -9,25 +9,36 @@ class OnboardingSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        SizedBox(
-          width: double.infinity,
-          height: 350,
-          child: SvgPicture.asset(onboardingModel.image, fit: BoxFit.contain),
-        ),
-        const SizedBox(height: 50),
-        Text(
-          onboardingModel.title,
-          style: Theme.of(context).textTheme.displayLarge,
-        ),
-        const SizedBox(height: 20),
-        Text(
-          onboardingModel.subtitle,
-          style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 18),
-        ),
-      ],
-    );
+    return  Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: SvgPicture.asset(
+              onboardingModel.image,
+              fit: BoxFit.contain,
+              width: double.infinity,
+            ),
+          ),
+          const SizedBox(height: 20),
+          Text(
+            onboardingModel.title,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.displayLarge,
+          ),
+          const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(
+              onboardingModel.subtitle,
+              textAlign: TextAlign.center,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(fontSize: 16),
+            ),
+          ),
+        ],
+      );
   }
 }
+

@@ -12,22 +12,24 @@ It allows field agents to manage tasks, interventions, and communicate with the 
 
 ## 📦 Tech Stack
 
--Flutter 3.x
--Dart 3.x
--GetX (state management, dependency injection, routing)
--Flutter SVG for vector illustrations
--Material Design 3 ready
+- Flutter 3.x
+- Dart 3.x
+- GetX (state management, dependency injection, routing)
+- Flutter SVG for vector illustrations
+- GetStorage (local persistence)
+- Material Design 3 ready
 
 ----
 
 ## 🚀 Features
 
-- Modern, responsive UI (supports light/dark mode)
-- Onboarding module with GetX
-- Clean architecture: MVC + GetX
-- Ready for backend integration via API
-- Reusable components in widgets/
-- Theme switching with LocaleController
+- 🏗️ **Clean Architecture** — Structured using the Repository Pattern.
+- 🔐 **Secure Authentication** — Token-based auth powered by Laravel Sanctum.
+- 📦 **State Management** — Reactive and predictable UI with GetX.
+- 🔌 **Offline First** — Local caching via GetStorage.
+- 🎨 **Modern UI** — Material 3 design with Light/Dark mode support.
+- 🧠 **Scalability** — Dependency injection and routing handled by GetX Bindings.
+- 🌐 **API Layer** — Centralized HTTP client with unified error handling.
 
 ----
 
@@ -64,26 +66,61 @@ It allows field agents to manage tasks, interventions, and communicate with the 
 
 ## 📂 Project Structure
 
+```text
 lib/
-┣ core/
-┃ ┣ constants/      # *Colors, texts, API URLs*
-┃ ┣ utils/          # *Utility functions*
-┃ ┗ services/       # *Global services*
-┣ data/
-┃ ┣ models/         # *Data classes*
-┃ ┣ repositories/   # *Smart data management*
-┃ ┗ data_sources/
-┃     ┣ remote/     # *API calls*
-┃     ┗ local/      # *Local storage*
-┣ presentation/
-┃ ┣ bindings/       # *GetX bindings*
-┃ ┣ controllers/    # *Page logic*
-┃ ┣ screens/        # *Application screens/pages*
-┃ ┗ widgets/        # *Reusable widgets/components*
-┣ config/
-┃ ┗ routes.dart     # *Navigation routes*
-┗ main.dart         # *Entry point*
+├── core/
+│   ├── constants/        # App constants (routes, HTTP status, storage keys)
+│   ├── services/         # Global services (API, local storage)
+│   └── utils/            # Helpers & validators
+├── data/
+│   ├── models/           # Data models (UserModel, ApiResponse, DTOs)
+│   ├── repositories/     # Business logic & data orchestration
+│   └── data_sources/
+│       ├── remote/       # API calls (AuthRemoteDataSource)
+│       └── local/        # Local cache (AuthLocalDataSource)
+├── presentation/
+│   ├── bindings/         # GetX bindings (dependency injection)
+│   ├── controllers/      # UI logic (GetX Controllers)
+│   ├── screens/          # Application screens
+│   └── widgets/          # Reusable UI components
+├── config/
+│   └── routes.dart       # Centralized navigation (GetX)
+└── main.dart             # Application entry point
+```
 
+----
+
+## 🔄 Data Flow Overview
+
+```text
+Screen (UI)
+   ↓
+Controller (GetX)
+   ↓
+Repository
+   ↓
+Local Data Source (Cache)
+   ↓
+Remote Data Source (API)
+
+➡️ Controllers never know where the data comes from (API or cache).
+```
+
+----
+
+## 🌐 API & Storage Management
+
+### API
+
+- Centralized HTTP client (ApiService)
+- Automatic headers & token injection
+- Timeout handling
+- Unified request logging
+
+### Local Storage
+
+- Powered by GetStorage
+- Abstracted via StorageService
 
 ----
 
@@ -102,6 +139,7 @@ lib/
 - Backend: Field Service Management Laravel 10
 - API Authentication: Sanctum
 - Role Management: Spatie Laravel Permission
+- Architecture: REST API
 
 ------
 

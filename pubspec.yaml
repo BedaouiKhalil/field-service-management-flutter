@@ -37,6 +37,9 @@ dependencies:
   get: ^4.7.2
   google_fonts: ^6.3.2
   flutter_svg: ^2.2.1
+  get_storage: ^2.1.1
+  http: ^1.2.1
+  lottie: ^3.3.2
 
 dev_dependencies:
   flutter_test:
@@ -61,6 +64,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/onboarding/
+    - assets/lottie/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
