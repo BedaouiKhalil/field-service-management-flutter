@@ -22,6 +22,11 @@ class AppColors {
   static const Color textLight = Color(0xFF6C757D); // for subtitle description
   static const Color textWhite = Colors.white;
 
+   // New lighter text variants
+  static const Color textLightMedium = Color(0xFF9CA3AF); // light
+  static const Color textLightSoft = Color(0xFFCBD5E1);   // very light
+  static const Color textLightUltra = Color(0xFFE5E7EB);  // ultra light
+
   // Background colors
   static const Color background = Color(0xFFF5F7FB);
   static const Color white = Colors.white;

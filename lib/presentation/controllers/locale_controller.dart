@@ -1,20 +1,33 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/constants/app_theme.dart';
+import '../../core/services/storage_service.dart';
 
 class LocaleController extends GetxController {
-  Rx<ThemeData> appTheme = darkTheme.obs;
+  RxBool isDarkMode = false.obs;
 
-  void changeTheme(ThemeData theme) {
-    appTheme.value = theme;
-    Get.changeTheme(theme);
+  @override
+  void onInit() {
+    super.onInit();
+    String? savedTheme = StorageService.getTheme();
+    
+    if (savedTheme == 'dark') {
+      isDarkMode.value = true;
+      Get.changeTheme(darkTheme);
+    } else {
+      isDarkMode.value = false;
+      Get.changeTheme(lightTheme);
+    }
   }
 
   void toggleTheme() {
-    if (appTheme.value == lightTheme) {
-      changeTheme(darkTheme);
+    if (isDarkMode.value) {
+      Get.changeTheme(lightTheme);
+      StorageService.saveTheme('light');
+      isDarkMode.value = false;
     } else {
-      changeTheme(lightTheme);
+      Get.changeTheme(darkTheme);
+      StorageService.saveTheme('dark');
+      isDarkMode.value = true;
     }
   }
 }

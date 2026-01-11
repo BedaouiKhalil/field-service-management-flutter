@@ -11,12 +11,12 @@ final ThemeData lightTheme = ThemeData(
   appBarTheme: const AppBarTheme(
     centerTitle: true,
     elevation: 0,
-    backgroundColor: AppColors.white,
+    backgroundColor: AppColors.background,
     iconTheme: IconThemeData(color: AppColors.primaryDark),
     titleTextStyle: TextStyle(
-      color: AppColors.primaryDark,
+      color: AppColors.primary,
       fontWeight: FontWeight.bold,
-      fontSize: 22,
+      fontSize: 26,
     ),
   ),
   textTheme: const TextTheme(
