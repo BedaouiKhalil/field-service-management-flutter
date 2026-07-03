@@ -9,20 +9,24 @@ class OnboardingDot extends GetView<OnboardingController> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Obx(() => Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(
-        controller.pages.length,
-        (i) => Container(
-          margin: EdgeInsets.symmetric(horizontal: 5),
-          decoration: BoxDecoration(
-            color: i == controller.currentPage.value ? theme.primaryColor : theme.primaryColor.withValues(alpha: 0.3),
-            borderRadius: BorderRadius.all(Radius.circular(10)),
+    return Obx(
+      () => Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: List.generate(
+          controller.pages.length,
+          (i) => Container(
+            width: i == controller.currentPage.value ? 30 : 10,
+            height: 10,
+            margin: const EdgeInsets.symmetric(horizontal: 5),
+            decoration: BoxDecoration(
+              color: i == controller.currentPage.value
+                  ? theme.colorScheme.primary
+                  : theme.colorScheme.primary.withValues(alpha: 0.3),
+              borderRadius: BorderRadius.circular(10),
+            ),
           ),
-          width: i == controller.currentPage.value ? 30 : 10,
-          height: 10,
         ),
       ),
-    ));
+    );
   }
 }

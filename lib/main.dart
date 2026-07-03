@@ -5,7 +5,7 @@ import 'package:get_storage/get_storage.dart';
 import 'config/routes.dart';
 import 'presentation/controllers/locale_controller.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
   runApp(const MyApp());
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'FSM Mobile',
       debugShowCheckedModeBanner: false,
-      theme: lightTheme, 
+      theme: lightTheme,
       darkTheme: darkTheme,
       initialRoute: '/',
       getPages: routes,

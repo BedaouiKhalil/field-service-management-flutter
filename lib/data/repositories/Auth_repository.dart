@@ -13,8 +13,11 @@ class AuthRepository {
       final statusCode = response['status'] as int;
 
       if (HttpStatus.isSuccess(statusCode)) {
-        await AuthLocalDataSource.saveAuthData(response);
-        final userJson = response['data'] as Map<String, dynamic>;
+        final dataContainer = response['data'] as Map<String, dynamic>;
+        
+        await AuthLocalDataSource.saveAuthData(dataContainer);
+
+        final userJson = dataContainer['user'] as Map<String, dynamic>;
         final user = UserModel.fromJson(userJson);
 
         return ApiResponse.success(
