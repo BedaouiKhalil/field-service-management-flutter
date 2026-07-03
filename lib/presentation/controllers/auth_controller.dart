@@ -1,7 +1,7 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:fsm_mobile/data/model/user_model.dart';
 import 'package:get/get.dart';
-import '../../data/repositories/Auth_repository.dart';
+import '../../data/repositories/auth_repository.dart';
 
 class AuthController extends GetxController {
   final GlobalKey<FormState> formstate = GlobalKey<FormState>();

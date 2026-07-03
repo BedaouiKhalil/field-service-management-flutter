@@ -1,3 +1,4 @@
+// lib/data/data_sources/local/auth_local_data_source.dart
 import '../../../core/services/storage_service.dart';
 
 class AuthLocalDataSource {
@@ -5,25 +6,25 @@ class AuthLocalDataSource {
     if (response['token'] != null) {
       StorageService.saveToken(response['token']);
     }
-    
-    if (response['data'] != null) {
-      StorageService.saveUser(response['data']);
+
+    if (response['user'] != null) {
+      StorageService.saveUser(response['user']);
     }
   }
-  
+
   static Map<String, dynamic>? getCurrentUser() {
     return StorageService.getUser();
   }
-  
+
   static bool isLoggedIn() {
     return StorageService.getToken() != null;
   }
-  
+
   static Future<void> logout() async {
     StorageService.removeToken();
     StorageService.removeUser();
   }
-  
+
   static String? getToken() {
     return StorageService.getToken();
   }

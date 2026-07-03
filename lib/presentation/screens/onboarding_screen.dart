@@ -15,16 +15,16 @@ class OnboardingScreen extends GetView<OnboardingController> {
       canPop: false,
       onPopInvokedWithResult: (bool didPop, Object? result) async {
         if (didPop) return;
-        
+
         final shouldExit = await alertExitApp();
-        
+
         if (shouldExit && context.mounted) {
           Navigator.of(context).pop();
         }
       },
       child: Scaffold(
         body: SafeArea(
-          child: Container(
+          child: Padding(
             padding: const EdgeInsets.only(
               left: 15,
               right: 15,
@@ -48,7 +48,7 @@ class OnboardingScreen extends GetView<OnboardingController> {
                             ),
                           ),
                           const SizedBox(height: 80),
-                          OnboardingDot(),
+                          const OnboardingDot(),
                         ],
                       );
                     },

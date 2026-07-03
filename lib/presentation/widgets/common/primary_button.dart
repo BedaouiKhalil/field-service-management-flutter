@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fsm_mobile/core/constants/app_colors.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String text;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final double? width;
+
   const PrimaryButton({
     super.key,
     required this.text,
@@ -17,16 +17,15 @@ class PrimaryButton extends StatelessWidget {
     return SizedBox(
       width: width ?? double.infinity,
       child: ElevatedButton(
-        onPressed:  onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primary,
-          foregroundColor: Colors.white,
-          padding: EdgeInsets.symmetric(vertical: 14),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+        onPressed: onPressed,
+        child: Text(
+          text,
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        child: Text(text, style: const TextStyle(fontSize: 18)),
       ),
     );
   }

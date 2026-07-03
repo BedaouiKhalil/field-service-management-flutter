@@ -5,4 +5,5 @@ class ApiRoutes {
   // Auth
   static const String login = '$baseUrl/auth/login';
   static const String logout = '$baseUrl/logout';
+  static const String tasks = '$baseUrl/tasks';
 }

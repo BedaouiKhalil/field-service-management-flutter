@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fsm_mobile/core/constants/app_routes.dart';
 import 'package:fsm_mobile/core/constants/onboarding_data.dart';
 import 'package:fsm_mobile/data/model/onboarding_model.dart';
-import 'package:fsm_mobile/presentation/screens/login_screen.dart';
 import 'package:get/get.dart';
 
 class OnboardingController extends GetxController {

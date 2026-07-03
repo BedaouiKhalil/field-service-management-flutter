@@ -7,6 +7,4 @@ class AppImageAsset {
   static const String onBoardingImageThree = "$rootImages/onboarding/step3.svg";
 
   static const String loading = "$rootLotties/loading.json";
-
-
 }
